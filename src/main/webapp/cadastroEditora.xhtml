@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+
+<h:body>
+
+	<ui:composition template="/WEB-INF/comum/template.xhtml">
+	 <ui:define name="corpo">
+		<h:form>
+			<h3>Cadastro de editora</h3>
+			<h:panelGrid columns="2">
+			Nome: <h:inputText id="nome" value="#{editoraBean.editora.nome}"></h:inputText> <br/>
+			URL:  <h:inputText id="url" value="#{editoraBean.editora.url}"></h:inputText> <br/>
+			E-mail: <h:inputText id="email" value="#{editoraBean.editora.email}"></h:inputText> <br/>
+			<h:inputHidden value="#{editoraBean.editora.id}"></h:inputHidden>
+			</h:panelGrid>
+			<h:commandButton value="salvar" action="#{editoraBean.salvar()}"></h:commandButton>
+		
+		</h:form>
+
+<br></br>
+<a href="index.html">Inicio</a>
+
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+
+
+</html>

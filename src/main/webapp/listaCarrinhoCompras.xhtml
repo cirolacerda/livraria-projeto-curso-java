@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head></h:head>
+
+<h:body>
+	<ui:composition template="/WEB-INF/comum/template.xhtml">
+		<ui:define name="corpo">
+
+			<h3>Carrinho compras</h3>
+
+			<br />
+
+		<h:form>
+			<h:dataTable value="#{carrinhoComprasBean.itensCompra}" var="item"
+				id="compras" width="650">
+				<h:column>
+					<f:facet name="header">Item</f:facet>
+					<h:outputText value="#{item.livro.titulo}">
+
+					</h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">Valor</f:facet>
+					<h:outputText value="#{item.livro.valor}">
+						<f:convertNumber type="currency" currencySymbol="R$" />
+					</h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">Quantidade</f:facet>
+					<h:outputText value="#{item.quantidade}">
+					</h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">Ações</f:facet>
+										
+					<h:commandLink action="#{carrinhoComprasBean.removerItemCompra(item)}"
+						value="excluir ">
+					</h:commandLink>
+				</h:column>
+
+			</h:dataTable>
+		</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

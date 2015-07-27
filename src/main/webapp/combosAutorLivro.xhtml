@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<head></head>
+
+<h:body>
+	<ui:composition template="/WEB-INF/comum/template.xhtml">
+		<ui:define name="corpo">
+	
+	<h:form>
+			<br />
+				Autor:
+			 <f:ajax event="change" render="livro">
+				<h:selectOneMenu value="#{combosAutorLivroBean.autor}" label="Autor"
+					id="autor">
+					<f:selectItem itemLabel="-- Selecione o autor --"
+						noSelectionOption="true" />
+					<f:selectItems value="#{combosAutorLivroBean.autores}" var="autor"
+						itemValue="#{autor}" itemLabel="#{autor.nome}" />
+				</h:selectOneMenu>
+				<h:message for="autor"></h:message>
+			</f:ajax>
+			
+			  Livros do autor:
+			<h:selectOneMenu value="#{combosAutorLivroBean.livro}"
+				label="livros" id="livro" >
+				<f:selectItem itemLabel="-- Selecione o autor primeiro --"  noSelectionOption="true"  />
+				<f:selectItems value="#{combosAutorLivroBean.livros}" var="livro"
+					itemValue="#{livro}" itemLabel="#{livro.titulo}" />
+			</h:selectOneMenu>
+			<h:message for="livro"></h:message>
+
+
+</h:form>
+
+
+
+
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+
+
+</html>

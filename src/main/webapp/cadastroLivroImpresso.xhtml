@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+<h:body>
+
+	<h:form>
+		<h3>Cadastro de livro impresso</h3>
+		<h:panelGrid columns="2">
+	Titulo: <h:inputText id="titulo"
+				value="#{livroImpressoBean.livroImpresso.titulo}"></h:inputText>
+			<br />
+	Descrição:  <h:inputTextarea id="descricao"
+				value="#{livroImpressoBean.livroImpresso.descricao}"></h:inputTextarea>
+			<br />
+	Número de Páginas: <h:inputText id="numeroPaginas"
+				value="#{livroImpressoBean.livroImpresso.numeroPaginas}"></h:inputText>
+			<br />
+	Valor: <h:inputText id="valor"
+				value="#{livroImpressoBean.livroImpresso.valor}"></h:inputText>
+			<br />
+	ISBN: <h:inputText id="isbn"
+				value="#{livroImpressoBean.livroImpresso.isbn}"></h:inputText>
+			<br />
+	Editora:
+<h:selectOneMenu value="#{livroImpressoBean.livroImpresso.editora}">
+				<f:selectItem itemLabel="-- Selecione --" noSelectionOption="true" />
+				<f:selectItems value="#{editoraBean.editoras}" var="editora"
+					itemValue="#{editora}" itemLabel="#{editora.nome}" />
+			</h:selectOneMenu>
+			<br />
+	Autor:
+<h:selectOneMenu value="#{livroImpressoBean.autor}">
+				<f:selectItem itemLabel="-- Selecione --" noSelectionOption="true" />
+				<f:selectItems value="#{autorBean.autores}" var="autor"
+					itemValue="#{autor}" itemLabel="#{autor.nome}" />
+			</h:selectOneMenu>
+			<br />
+	Peso: <h:inputText id="peso"
+				value="#{livroImpressoBean.livroImpresso.peso}"></h:inputText>	
+				<br />
+	Altura: <h:inputText id="altura"
+				value="#{livroImpressoBean.livroImpresso.altura}"></h:inputText>
+					<br />
+	Largura: <h:inputText id="largura"
+				value="#{livroImpressoBean.livroImpresso.largura}"></h:inputText>											
+
+			
+		</h:panelGrid>
+		<h:commandButton value="salvar" action="#{livroImpressoBean.salvar()}"></h:commandButton>
+
+	</h:form>
+
+	<br></br>
+	<a href="index.html">Inicio</a>
+</h:body>
+
+
+</html>

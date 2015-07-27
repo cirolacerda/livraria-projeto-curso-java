@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+<h:body>
+	<ui:composition template="/WEB-INF/comum/template.xhtml">
+		<ui:define name="corpo">
+			<h:form>
+
+				<h3>
+					<h:outputText value="#{detalheLivroBean.livro.titulo}">
+					</h:outputText>
+				</h3>
+
+
+				<h:panelGrid>	
+				 Imagem:			
+					   <img src="#{detalheLivroBean.livro.urlImagemCapa}"></img>
+				</h:panelGrid>
+				<h:panelGrid columns="2">
+					<br />
+					Descrição: <h:inputTextarea id="descricao"
+						value="#{detalheLivroBean.livro.descricao}" disabled="true"></h:inputTextarea>
+					<br />
+					Nr. Páginas: <h:outputText id="numeroPaginas"
+						value="#{detalheLivroBean.livro.numeroPaginas}"></h:outputText>
+					<br />
+					Editora: <h:outputText id="editora"
+						value="#{detalheLivroBean.livro.editora.nome}"></h:outputText>
+					<br />
+							
+					Autor:	<h:dataTable value="#{detalheLivroBean.livro.autores}"
+						var="autor">
+						<h:column>
+							<h:outputText value="#{autor.nome}"></h:outputText>
+						</h:column>
+					</h:dataTable>
+					<br />
+					Valor: <h:outputText id="valor"
+						value="#{detalheLivroBean.livro.valor}">
+						<f:convertNumber type="currency" currencySymbol="R$" />
+					</h:outputText>
+					<br />
+					
+					<h:commandButton value="Comprar" action="#{carrinhoComprasBean.adicionarItemCompra()}">
+					<f:param name="id" value="#{detalheLivroBean.livro.id}"></f:param>
+					</h:commandButton>
+
+				</h:panelGrid>
+
+			</h:form>
+
+			<br></br>
+			<a href="index.html">Inicio</a>
+
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+
+
+</html>
